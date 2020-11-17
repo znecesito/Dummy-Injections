@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect
 from injections import app
-# from injections.models import User
+from injections.models import User
 from injections.forms import RegistrationForm, LoginForm
 
 @app.route("/", methods=['GET', 'POST'])

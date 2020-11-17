@@ -1,5 +1,5 @@
 from datetime import datetime
-# from injections import db
+from injections import db
 
 
 class User(db.Model):
