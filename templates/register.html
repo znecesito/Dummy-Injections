@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content0 %}
+<div class="text-center mt-5">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      {% if form.email.errors %}
+      {{ form.email(class="form-control is-invalid") }}
+      <div class="invalid-feedback">
+        {% for error in form.email.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+      {% else %}
+      {{ form.email(class="form-control", placeholder="email") }}
+      {% endif %}
+    </div>
+    <div class="input-group mb-2">
+      {% if form.password.errors %}
+      {{ form.password(class="form-control is-invalid") }}
+      <div class="invalid-feedback">
+        {% for error in form.password.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+      {% else %}
+      {{ form.password(class="form-control", placeholder="Password") }}
+      {% endif %}
+    </div>
+    <div class="input-group mb-3">
+      {% if form.confirm_password.errors %}
+      {{ form.confirm_password(class="form-control is-invalid") }}
+      <div class="invalid-feedback">
+        {% for error in form.confirm_password.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+      {% else %}
+      {{ form.confirm_password(class="form-control", placeholder="Confirm Password") }}
+      {% endif %}
+    </div>
+    <!-- <button type="submit" class="btn btn-outline-primary btn-block" name="submit">Submit</button> -->
+    {{ form.submit(class="btn btn-outline-primary btn-block") }}
+  </form>
+</div>
+{% endblock content0 %}
