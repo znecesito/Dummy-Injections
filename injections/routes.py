@@ -10,9 +10,7 @@ def home():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-            user = User.query.filter_by(email=form.email.data).first()
-            if user and bcrypt.check_password_hash(user.password, form.password.data):
-                login_user(user, remember=form.remember.data)
+            login_user(user, remember=form.remember.data)
             flash('You have been logged in!', 'success')
             return redirect(url_for('success'))
         else:
